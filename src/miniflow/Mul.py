@@ -5,14 +5,14 @@ Created on Jan 30, 2017
 '''
 from miniflow.Node import Node
 
-class Add(Node):
+class Mul(Node):
 
     def __init__(self, *args):
         Node.__init__(self, args)
         
     def forward(self):
-        result = 0
+        result = 1
         for n in self.inbound_nodes:
-            result = result + n.value
+            result = result * n.value
         self.value = result
             
