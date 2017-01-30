@@ -13,6 +13,6 @@ class Add(Node):
     def forward(self):
         result = 0
         for n in self.inbound_nodes:
-            result = result + n.value
+            result += n.value
         self.value = result
             

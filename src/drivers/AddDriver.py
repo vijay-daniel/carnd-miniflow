@@ -5,6 +5,7 @@ Created on Jan 30, 2017
 '''
 from miniflow.Add import Add
 from miniflow.Input import Input
+from miniflow.Mul import Mul
 from miniflow.Util import topological_sort, forward_pass
 
 """
