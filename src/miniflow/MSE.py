@@ -15,4 +15,12 @@ class MSE(Node):
         y = self.inbound_nodes[0].value.reshape(-1, 1)
         a = self.inbound_nodes[1].value.reshape(-1, 1)
         
-        self.value = np.sum(np.square(y - a)) / y.shape[0]
+        self.m = y.shape[0]
+        self.diff = y - a
+        self.value = np.mean(self.diff ** 2)
+
+    def backward(self):
+        self.gradients[self.inbound_nodes[0]] = (2.0 / self.m) * self.diff
+        self.gradients[self.inbound_nodes[1]] = (-2.0 / self.m) * self.diff
+        
+        print("MSE: ", self.gradients)
